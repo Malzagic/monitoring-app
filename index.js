@@ -3,7 +3,7 @@ const os = require("os");
 const WebSocket = require("ws");
 
 const server = http.createServer();
-const wss = new WebSocket.Server({ server });
+const wss = new WebSocket.Server({ server, path: "/ws" });
 
 function getSystemData() {
   const totalMem = os.totalmem();
@@ -33,5 +33,5 @@ wss.on("connection", ws => {
 });
 
 server.listen(20604, () => {
-  console.log("WebSocket server running on port 3000");
+  console.log("WebSocket server running on port 20604");
 });
